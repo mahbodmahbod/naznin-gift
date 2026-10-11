@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#e9d9c6">
+    <meta name="description" content="یه سورپرایز کوچیک برای تو">
+    <title>شروعش کن خانم خانما</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app">
+
+        <!-- صفحه شروع -->
+
+        <section id="welcomeScreen" class="screen welcome-screen">
+            <div class="welcome-content">
+                <span class="eyebrow">یه چیزی برای تو دارم... 🤍</span>
+
+                <h1>شروعش کن خانم خانما</h1>
+
+                <p class="welcome-description">
+                    یه سورپرایز کوچیک، فقط برای تو.
+                </p>
+
+                <button id="startButton" class="button primary-button" type="button">
+                    بازش کن :)
+                </button>
+            </div>
+        </section>
+
+
+        <!-- مراحل سورپرایز -->
+
+        <section id="surpriseScreen" class="screen hidden">
+
+            <header class="topbar">
+                <span class="topbar-label">یه چیز کوچیک برای تو</span>
+
+                <div class="progress-track" aria-label="پیشرفت مراحل">
+                    <div id="progressBar" class="progress-fill"></div>
+                </div>
+            </header>
+
+
+            <!-- مرحله اول -->
+
+            <section id="stage1" class="stage hidden">
+                <div class="stage-card">
+                    <span class="stage-number">1 / 5</span>
+
+                    <h2>روز دختره</h2>
+
+                    <p class="question">
+                        امروز روز دختره اما روز توهم هست به نظرت؟
+                    </p>
+
+                    <div class="options two-options">
+                        <button class="option-button" type="button" data-answer="yes">
+                            اره
+                        </button>
+
+                        <button class="option-button" type="button" data-answer="no">
+                            نه
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stage1Result" class="result-slot"></div>
+
+                <button class="button next-button hidden" type="button" data-next="2">
+                    ادامه بده
+                </button>
+            </section>
+
+
+            <!-- مرحله دوم -->
+
+            <section id="stage2" class="stage hidden">
+                <div class="stage-card">
+                    <span class="stage-number">2 / 5</span>
+
+                    <h2>یه انتخاب کوچیک</h2>
+
+                    <p class="question">
+                        اگه یه روز بخوای قشنگ ترین چیزی که میتونی نگاه کنیو ببینی میری سمت کدومش
+                    </p>
+
+                    <div class="options four-options">
+                        <button class="option-button" type="button" data-answer="forest">
+                            جنگل
+                        </button>
+
+                        <button class="option-button" type="button" data-answer="sea">
+                            دریا
+                        </button>
+
+                        <button class="option-button" type="button" data-answer="sky">
+                            اسمون تویه شب
+                        </button>
+
+                        <button class="option-button" type="button" data-answer="mirror">
+                            اینه
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stage2Result" class="result-slot"></div>
+
+                <button class="button next-button hidden" type="button" data-next="3">
+                    ادامه بده
+                </button>
+            </section>
+
+
+            <!-- مرحله سوم -->
+
+            <section id="stage3" class="stage hidden">
+                <div class="stage-card">
+                    <span class="stage-number">3 / 5</span>
+
+                    <h2>یه سؤال دیگه</h2>
+
+                    <p class="question">
+                        یکی از استاید نوشته بود چرا تو خاورمیانه یا همش جنگه یا روز دختر
+                    </p>
+
+                    <div class="options three-options">
+                        <button class="option-button" type="button" data-answer="me">
+                            به من چه
+                        </button>
+
+                        <button class="option-button" type="button" data-answer="you">
+                            به تو چه
+                        </button>
+
+                        <button class="option-button" type="button" data-answer="unknown">
+                            نمیدونم
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stage3Result" class="result-slot"></div>
+
+                <button class="button next-button hidden" type="button" data-next="4">
+                    ادامه بده
+                </button>
+            </section>
+
+
+            <!-- مرحله چهارم -->
+
+            <section id="stage4" class="stage hidden">
+                <div class="stage-card comparison-card">
+                    <span class="stage-number">4 / 5</span>
+
+                    <h2>فرقتو با کارکتر زیر مشخص کن</h2>
+
+                    <div class="photo-pair">
+
+                        <figure class="photo-item photo-left">
+                            <img
+                                id="nazaninPhoto"
+                                src="images/nazanin-child.jpg"
+                                alt="عکس نازنین"
+                                class="comparison-photo"
+                            >
+                        </figure>
+
+                        <figure class="photo-item photo-right">
+                            <img
+                                id="characterPhoto"
+                                src="images/character.jpg"
+                                alt="عکس کاراکتر"
+                                class="comparison-photo"
+                            >
+                        </figure>
+
+                    </div>
+
+                    <div class="options three-options comparison-options">
+
+                        <button
+                            class="option-button"
+                            type="button"
+                            data-answer="wrong1"
+                        >
+                            اصلا شبیه‌م نیست
+                        </button>
+
+                        <button
+                            class="option-button"
+                            type="button"
+                            data-answer="wrong2"
+                        >
+                            کجاش شبیه منه اخه
+                        </button>
+
+                        <button
+                            class="option-button"
+                            type="button"
+                            data-answer="correct"
+                        >
+                            واقعا شبیه خودمه
+                        </button>
+
+                    </div>
+                </div>
+
+                <div id="stage4Result" class="result-slot"></div>
+
+                <button class="button next-button hidden" type="button" data-next="5">
+                    ادامه بده
+                </button>
+            </section>
+
+
+            <!-- مرحله پنجم: نامه -->
+
+            <section id="stage5" class="stage hidden">
+                <div class="stage-card letter-stage">
+                    <span class="stage-number">5 / 5</span>
+
+                    <div class="envelope-scene">
+
+                        <div id="envelope" class="envelope">
+
+                            <div class="envelope-back"></div>
+
+                            <div id="letterPaper" class="letter-paper">
+                                <div class="letter-content">
+                                    <p id="letterText" class="letter-text"></p>
+                                    <span id="letterCursor" class="letter-cursor hidden"></span>
+                                </div>
+                            </div>
+
+                            <div class="envelope-front"></div>
+                            <div class="envelope-flap"></div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        id="openLetterButton"
+                        class="button letter-button"
+                        type="button"
+                    >
+                        نامه رو باز کن
+                    </button>
+
+                    <div id="letterStatus" class="letter-status" aria-live="polite"></div>
+
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,1013 @@
+:root {
+    --cream: #f0e3d2;
+    --cream-light: #f8efe5;
+    --latte: #d7b99b;
+    --brown: #8c654f;
+    --brown-dark: #64483c;
+
+    --purple: #a65be8;
+    --purple-neon: #bd70ff;
+    --purple-dark: #6735a6;
+
+    --text: #625b59;
+    --text-light: #807572;
+    --white-soft: #fffaf6;
+
+    --card-bg: rgba(255, 250, 245, 0.69);
+    --card-border: rgba(255, 255, 255, 0.48);
+
+    --radius-card: 25px;
+    --radius-button: 15px;
+
+    --space-small: 12px;
+    --space-medium: 20px;
+    --space-large: 28px;
+
+    --shadow-card:
+        0 18px 50px rgba(94, 63, 48, 0.11);
+
+    --shadow-button:
+        0 7px 20px rgba(103, 53, 166, 0.20);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    overflow-x: hidden;
+
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            ellipse at 100% 0%,
+            rgba(140, 101, 79, 0.58) 0%,
+            rgba(177, 135, 105, 0.25) 27%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 0% 100%,
+            rgba(240, 227, 210, 0.95) 0%,
+            rgba(226, 204, 180, 0.78) 31%,
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #eee0d0 0%,
+            #e5d2bd 48%,
+            #c8a78c 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+button {
+    font: inherit;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+
+button:focus-visible {
+    outline: 3px solid var(--purple-neon);
+    outline-offset: 4px;
+}
+
+
+.ambient {
+    position: fixed;
+    z-index: -1;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+    filter: blur(85px);
+
+    pointer-events: none;
+}
+
+
+.ambient-one {
+    top: -110px;
+    right: -90px;
+
+    background: rgba(147, 91, 180, 0.22);
+}
+
+
+.ambient-two {
+    bottom: -130px;
+    left: -90px;
+
+    background: rgba(246, 223, 190, 0.7);
+}
+
+
+.app {
+    width: 100%;
+    max-width: 760px;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    margin: 0 auto;
+    padding:
+        max(22px, env(safe-area-inset-top))
+        18px
+        max(30px, env(safe-area-inset-bottom));
+}
+
+
+.screen {
+    width: 100%;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* صفحه شروع */
+
+
+.welcome-screen {
+    min-height: calc(100vh - 52px);
+    min-height: calc(100dvh - 52px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.welcome-content {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+
+    background: var(--card-bg);
+
+    box-shadow: var(--shadow-card);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation: welcome-enter 700ms ease both;
+}
+
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 19px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: var(--brown);
+}
+
+
+.welcome-content h1 {
+    margin: 0;
+
+    font-size: clamp(27px, 6vw, 38px);
+    line-height: 1.6;
+    font-weight: 750;
+
+    color: var(--brown-dark);
+}
+
+
+.welcome-description {
+    margin: 13px 0 26px;
+
+    font-size: 15px;
+    line-height: 2;
+
+    color: var(--text-light);
+}
+
+
+/* دکمه‌ها */
+
+
+.button {
+    min-height: 49px;
+
+    padding: 13px 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.19);
+    border-radius: var(--radius-button);
+
+    background: linear-gradient(
+        135deg,
+        var(--purple) 0%,
+        var(--purple-dark) 100%
+    );
+
+    color: var(--white-soft);
+
+    font-size: 15px;
+    font-weight: 750;
+
+    text-align: center;
+    text-decoration: none;
+
+    box-shadow: var(--shadow-button);
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        filter 180ms ease;
+}
+
+
+.button:hover {
+    box-shadow: 0 10px 26px rgba(103, 53, 166, 0.27);
+    filter: brightness(1.04);
+}
+
+
+.button:active {
+    transform: scale(0.97);
+}
+
+
+.primary-button {
+    min-width: 155px;
+}
+
+
+.next-button {
+    display: flex;
+
+    width: 100%;
+    max-width: 260px;
+
+    margin: 22px auto 0;
+}
+
+
+.letter-button {
+    display: flex;
+
+    width: 100%;
+    max-width: 260px;
+
+    margin: 20px auto 0;
+}
+
+
+/* نوار بالای مراحل */
+
+
+.topbar {
+    margin: 6px 0 27px;
+}
+
+
+.topbar-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--brown);
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+.progress-track {
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.44);
+}
+
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        var(--purple-neon),
+        var(--purple-dark)
+    );
+
+    transition: width 350ms ease;
+}
+
+
+/* کارت مراحل */
+
+
+.stage {
+    width: 100%;
+}
+
+
+.stage-card {
+    width: 100%;
+
+    padding: 25px 20px 24px;
+
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-card);
+
+    background: var(--card-bg);
+
+    box-shadow: var(--shadow-card);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    text-align: center;
+}
+
+
+.stage-enter {
+    animation: stage-enter 520ms cubic-bezier(.2, .75, .25, 1) both;
+}
+
+
+.stage-number {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding: 5px 12px;
+
+    border-radius: 999px;
+
+    color: var(--purple-dark);
+    background: rgba(189, 112, 255, 0.12);
+
+    font-size: 12px;
+    font-weight: 750;
+
+    direction: ltr;
+}
+
+
+.stage-card h2 {
+    margin: 0 0 15px;
+
+    color: var(--brown-dark);
+
+    font-size: clamp(22px, 5.5vw, 28px);
+    line-height: 1.65;
+    font-weight: 750;
+}
+
+
+.question {
+    max-width: 530px;
+
+    margin: 0 auto 24px;
+
+    font-size: 16px;
+    line-height: 2;
+
+    color: var(--text);
+}
+
+
+/* گزینه‌ها */
+
+
+.options {
+    display: grid;
+
+    gap: 12px;
+
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.two-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+.three-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+.four-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+.option-button {
+    width: 100%;
+    min-width: 0;
+
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 8px;
+
+    border: 1.5px solid var(--purple-neon);
+    border-radius: 15px;
+
+    background: rgba(255, 251, 248, 0.66);
+
+    color: var(--text);
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+
+    cursor: pointer;
+
+    transition:
+        background 180ms ease,
+        color 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.option-button:hover {
+    background: rgba(189, 112, 255, 0.12);
+
+    box-shadow:
+        0 0 0 2px rgba(189, 112, 255, 0.07);
+}
+
+
+.option-button:active {
+    transform: scale(0.97);
+}
+
+
+.option-button:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+
+.option-button.selected {
+    color: var(--white-soft);
+
+    border-color: var(--purple-dark);
+
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--purple-dark)
+    );
+
+    box-shadow: var(--shadow-button);
+}
+
+
+/* پاسخ‌ها */
+
+
+.result-slot {
+    width: 100%;
+}
+
+
+.result-card {
+    margin-top: 16px;
+    padding: 18px 17px;
+
+    border: 1px solid rgba(189, 112, 255, 0.4);
+    border-radius: 19px;
+
+    background: rgba(255, 250, 247, 0.83);
+
+    box-shadow: 0 9px 25px rgba(94, 63, 48, 0.07);
+
+    color: var(--text);
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 2.1;
+
+    overflow-wrap: anywhere;
+
+    animation: result-enter 500ms cubic-bezier(.2, .75, .25, 1) both;
+}
+
+
+.result-card p {
+    margin: 0;
+}
+
+
+.result-card .button {
+    margin-top: 16px;
+}
+
+
+.result-message {
+    white-space: pre-line;
+}
+
+
+/* تصاویر مرحله چهارم */
+
+
+.comparison-card {
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+
+.photo-pair {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    width: 100%;
+    max-width: 430px;
+
+    margin: 25px auto 27px;
+
+    align-items: center;
+}
+
+
+.photo-item {
+    min-width: 0;
+    margin: 0;
+}
+
+
+.comparison-photo {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    border: none;
+    border-radius: 19px;
+
+    background: rgba(189, 112, 255, 0.1);
+
+    box-shadow: 0 10px 24px rgba(94, 63, 48, 0.1);
+}
+
+
+.photo-left {
+    transform: rotate(-4deg);
+}
+
+
+.photo-right {
+    transform: rotate(4deg);
+}
+
+
+.comparison-options {
+    gap: 9px;
+}
+
+
+.comparison-options .option-button {
+    padding: 10px 5px;
+
+    min-height: 65px;
+
+    font-size: 12px;
+}
+
+
+/* نامه و پاکت */
+
+
+.letter-stage {
+    overflow: hidden;
+
+    padding-bottom: 26px;
+}
+
+
+.envelope-scene {
+    width: 100%;
+    min-height: 280px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px 0;
+
+    perspective: 1000px;
+}
+
+
+.envelope {
+    position: relative;
+
+    width: min(100%, 340px);
+    height: 205px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #b58c70;
+
+    box-shadow:
+        0 20px 35px rgba(82, 53, 39, 0.19),
+        inset 0 -3px 0 rgba(83, 50, 34, 0.1);
+
+    transition:
+        transform 600ms ease,
+        opacity 600ms ease;
+}
+
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        145deg,
+        #d4b195,
+        #b48b6e
+    );
+}
+
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            140deg,
+            transparent 49.5%,
+            rgba(113, 76, 56, 0.12) 50%
+        ),
+        linear-gradient(
+            220deg,
+            transparent 49.5%,
+            rgba(113, 76, 56, 0.1) 50%
+        ),
+        linear-gradient(
+            180deg,
+            #d1ac8d,
+            #c39a7b
+        );
+
+    clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+
+    pointer-events: none;
+}
+
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 4;
+
+    width: 100%;
+    height: 58%;
+
+    background: linear-gradient(
+        180deg,
+        #dfbea0,
+        #c39a7b
+    );
+
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+    transform-origin: top center;
+
+    transition:
+        transform 700ms cubic-bezier(.2, .7, .25, 1),
+        opacity 450ms ease;
+
+    backface-visibility: hidden;
+}
+
+
+.letter-paper {
+    position: absolute;
+
+    top: 10px;
+    left: 5%;
+
+    z-index: 2;
+
+    width: 90%;
+    height: 185px;
+
+    overflow: hidden;
+
+    padding: 19px 15px;
+
+    border-radius: 5px 5px 3px 3px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff4e3,
+            #f1dfc9
+        );
+
+    box-shadow: 0 5px 13px rgba(77, 48, 34, 0.1);
+
+    opacity: 0;
+
+    transform: translateY(55px);
+
+    transition:
+        transform 850ms cubic-bezier(.2, .75, .25, 1),
+        opacity 450ms ease;
+}
+
+
+.envelope.opening .envelope-flap {
+    transform: rotateX(180deg);
+    opacity: 0.5;
+}
+
+
+.envelope.opening .letter-paper {
+    opacity: 1;
+    transform: translateY(-18px);
+}
+
+
+.envelope.leaving {
+    transform: translateY(320px) scale(0.9);
+    opacity: 0;
+}
+
+
+.envelope.leaving .letter-paper {
+    transform: translateY(-245px);
+}
+
+
+.envelope.leaving .envelope-flap {
+    opacity: 0;
+}
+
+
+.letter-content {
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+
+    text-align: right;
+
+    scrollbar-width: thin;
+}
+
+
+.letter-text {
+    margin: 0;
+
+    color: #674c3d;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    line-height: 2.15;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+.letter-cursor {
+    display: inline-block;
+
+    width: 2px;
+    height: 17px;
+
+    margin-right: 3px;
+
+    vertical-align: middle;
+
+    background: #8b5fba;
+
+    animation: cursor-blink 850ms steps(2, start) infinite;
+}
+
+
+.letter-status {
+    margin-top: 15px;
+
+    color: var(--brown);
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* انیمیشن‌ها */
+
+
+@keyframes welcome-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes stage-enter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes result-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes cursor-blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+
+/* سازگاری با گوشی‌های کوچک */
+
+
+@media (max-width: 390px) {
+    .app {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .stage-card {
+        padding: 22px 14px;
+    }
+
+    .question {
+        font-size: 15px;
+    }
+
+    .options {
+        gap: 9px;
+    }
+
+    .option-button {
+        padding-right: 5px;
+        padding-left: 5px;
+
+        font-size: 13px;
+    }
+
+    .comparison-options .option-button {
+        font-size: 11px;
+    }
+
+    .photo-pair {
+        gap: 14px;
+    }
+
+    .comparison-photo {
+        border-radius: 15px;
+    }
+}
+
+
+/* صفحه‌های عریض‌تر */
+
+
+@media (min-width: 600px) {
+    .app {
+        padding-top: 35px;
+        padding-bottom: 45px;
+    }
+
+    .stage-card {
+        padding: 32px 30px;
+    }
+
+    .question {
+        font-size: 17px;
+    }
+
+    .option-button {
+        font-size: 15px;
+    }
+
+    .comparison-options .option-button {
+        font-size: 13px;
+    }
+
+    .envelope-scene {
+        min-height: 315px;
+    }
+
+    .envelope {
+        height: 225px;
+    }
+
+    .letter-paper {
+        height: 205px;
+    }
+}
+
+
+/* احترام به تنظیم کاهش حرکت دستگاه */
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
